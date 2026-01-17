@@ -2,9 +2,11 @@
 
 Production-style AWS infrastructure built with Terraform, deploying a containerized application on ECS Fargate behind an Application Load Balancer using a modular, environment-based design.
 
-## Architecture Overview
+---
 
-This project provisions a cloud-native container platform on AWS using Terraform modules. 
+## 🏗️ Architecture Overview
+
+This project provisions a cloud-native container platform on AWS using Terraform modules.  
 The infrastructure is designed with security, scalability, and cost-awareness in mind.
 
 ```mermaid
@@ -27,24 +29,26 @@ flowchart TB
     ECS --> Tasks
 
 
----
+🧰 Tech Stack
 
-## 3️⃣ Tech Stack
+Infrastructure as Code: Terraform
 
-```md
-## Tech Stack
+Cloud Provider: AWS
 
-- **Infrastructure as Code:** Terraform
-- **Cloud Provider:** AWS
-- **Compute:** ECS Fargate
-- **Load Balancing:** Application Load Balancer (ALB)
-- **Networking:** VPC with public and private subnets
-- **IAM:** Least-privilege task execution role
-- **Logging:** CloudWatch Logs
-- **State Management:** Remote backend (S3)
+Compute: ECS Fargate
 
-## Project Structure
+Load Balancing: Application Load Balancer (ALB)
 
+Networking: VPC with public and private subnets
+
+IAM: Least-privilege task execution role
+
+Logging: CloudWatch Logs
+
+State Management: Remote backend using S3
+
+
+📁 Project Structure
 terraform/
 ├── modules/
 │   ├── vpc/        # VPC, subnets, routing, NAT
@@ -54,46 +58,56 @@ terraform/
 └── envs/
     └── dev/        # Dev environment wiring and backend
 
-## Key Design Decisions
 
-- ECS tasks run in **private subnets** with no public IPs
-- ALB is the **only public entry point**
-- Target group uses **IP mode** (required for Fargate)
-- IAM roles follow **least-privilege principles**
-- Infrastructure is fully reproducible using Terraform modules
 
-## How to Deploy
+🧠 Key Design Decisions
 
-```bash
+ECS tasks run in private subnets with no public IPs
+
+The Application Load Balancer is the only public entry point
+
+Target groups use IP mode, which is required for Fargate
+
+IAM roles follow least-privilege principles
+
+Infrastructure is fully reproducible using Terraform modules
+
+
+🚀 How to Deploy
+
 cd terraform/envs/dev
 terraform init
 terraform plan
 terraform apply
 
+To destroy resources:
 terraform destroy
 
 
----
+🚧 Challenges and Learnings
 
-## 7️⃣ Challenges & Learnings (Short Teaser)
+Clear separation between Terraform modules and environment execution
 
-```md
-## Challenges & Learnings
+Safe management of remote state using S3
 
-- Proper separation of Terraform modules vs environments
-- Managing remote state safely with S3
-- Debugging IAM and credential issues
-- Incremental infrastructure build to reduce risk
+Debugging IAM credentials and AWS profiles
 
-## Case Study
+Incremental infrastructure build to reduce deployment risk
 
-A detailed case study covering architecture decisions, challenges, and lessons learned is available here:
 
-👉 [Read the full case study](LINK_TO_BLOG_OR_DOC)
+📖 Case Study
 
-## Future Improvements
+A detailed case study covering architecture decisions, challenges faced, and lessons learned is available here:
 
-- HTTPS with ACM
-- Autoscaling policies for ECS service
-- CI/CD pipeline for automated deployments
-- Blue/green deployment strategy
+👉 Read the full case study
+
+
+🔮 Future Improvements
+
+HTTPS termination using ACM
+
+Autoscaling policies for the ECS service
+
+CI/CD pipeline for automated deployments
+
+Blue green deployment strategy
