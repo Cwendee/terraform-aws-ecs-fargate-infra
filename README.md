@@ -33,14 +33,9 @@ Logging: CloudWatch Logs
 State Management: Remote backend using S3
 
 
-<<<<<<< HEAD
-
-📁 Project Structure
-=======
 ## 📁 Project Structure
 
 ```text
->>>>>>> ca14945 (docs: improve project structure section)
 terraform/
 ├── modules/
 │   ├── vpc/        # VPC, subnets, routing, NAT
