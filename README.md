@@ -9,24 +9,7 @@ Production-style AWS infrastructure built with Terraform, deploying a containeri
 This project provisions a cloud-native container platform on AWS using Terraform modules.  
 The infrastructure is designed with security, scalability, and cost-awareness in mind.
 
-```mermaid
-flowchart TB
-    Internet --> ALB["Application Load Balancer\n(Public Subnets)"]
-
-    subgraph VPC["VPC (10.0.0.0/16)"]
-        subgraph Public["Public Subnets"]
-            ALB
-        end
-
-        subgraph Private["Private Subnets"]
-            ECS["ECS Fargate Service"]
-            Tasks["ECS Tasks (Containers)"]
-        end
-    end
-
-    ALB --> TG["Target Group (IP mode)"]
-    TG --> ECS
-    ECS --> Tasks
+![ECS Fargate Architecture](docs/architecture-diagram.png)
 
 
 🧰 Tech Stack
