@@ -12,6 +12,8 @@ The infrastructure is designed with security, scalability, and cost-awareness in
 ![ECS Fargate Architecture](docs/architecture-diagram.png)
 
 
+
+
 🧰 Tech Stack
 
 Infrastructure as Code: Terraform
@@ -31,6 +33,7 @@ Logging: CloudWatch Logs
 State Management: Remote backend using S3
 
 
+
 📁 Project Structure
 terraform/
 ├── modules/
@@ -40,6 +43,7 @@ terraform/
 │
 └── envs/
     └── dev/        # Dev environment wiring and backend
+
 
 
 
@@ -56,6 +60,7 @@ IAM roles follow least-privilege principles
 Infrastructure is fully reproducible using Terraform modules
 
 
+
 🚀 How to Deploy
 
 cd terraform/envs/dev
@@ -65,6 +70,7 @@ terraform apply
 
 To destroy resources:
 terraform destroy
+
 
 
 🚧 Challenges and Learnings
@@ -78,11 +84,13 @@ Debugging IAM credentials and AWS profiles
 Incremental infrastructure build to reduce deployment risk
 
 
+
 📖 Case Study
 
 A detailed case study covering architecture decisions, challenges faced, and lessons learned is available here:
 
 👉 Read the full case study
+
 
 
 🔮 Future Improvements
@@ -93,4 +101,4 @@ Autoscaling policies for the ECS service
 
 CI/CD pipeline for automated deployments
 
-Blue green deployment strategy
+Blue-green deployment strategy
